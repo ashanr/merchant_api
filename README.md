@@ -12,7 +12,7 @@ MySQL
 
 ## Installation Steps
 
-1. Copy the database from  /app/database folder
+1. Import the database from  /app/database folder
 ```
 merchant_db.sql
 ```
