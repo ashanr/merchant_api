@@ -12,7 +12,13 @@ MySQL
 
 ## Installation Steps
 
+1. Copy the database from  /app/database folder
+```
+merchant_db.sql
+```
+
 ### Copy the example env file and make the required configuration changes in the .env file
+
 
 ```
 cp .env.example .env
