@@ -24,11 +24,18 @@ class MerchantRepository extends BaseRepository
         $this->model = $model;
     }
 
-    public function getMerchants($conditions = [], $paged = 25, $orderBy = 'created_at', $sort = 'desc')
+    public function getMerchants($conditions = [], $paged = 25, $orderBy = 'created_at', $sort = 'desc', $new_from_date = '', $new_to_date = '' )
+    // public function getMerchants($conditions = [], $paged = 25, $orderBy = 'created_at', $sort = 'desc')
     {
 
-        $query = Merchant::where($conditions)
-            ->orderBy($orderBy, $sort);
+       
+        $query = Merchant::where($conditions);
+
+        // if (!empty($new_from_date) && !empty($new_to_date)) {
+        //     $query->whereBetween('PaymentDate', [$new_from_date, $new_to_date]);
+        // }
+            
+            $query->orderBy($orderBy, $sort);
         return $query->paginate($paged);
     }
 

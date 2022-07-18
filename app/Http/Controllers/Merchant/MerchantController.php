@@ -80,12 +80,8 @@ class MerchantController extends Controller
         if ($request->filled('end_date')) {
             $conditions[] = ['PaymentDate', '<=', $request->get('end_date')];
         }
-
-        // if (!empty($from_date) && !empty($to_date)) {
-        //     $conditions[] = ['PaymentDate', '<=', $request->get('end_date')];
-        //     $query =  $query->whereBetween('PaymentDate', [$new_from_date, $new_to_date]);
-        // }
-        $merchants =  $this->MerchantRepo->getMerchants($conditions, $paged, $orderBy, $sort)->toArray();
+      
+        $merchants =  $this->MerchantRepo->getMerchants($conditions, $paged, $orderBy, $sort, $new_from_date, $new_to_date)->toArray();
 
         if (!empty($merchants)) {
             return response()->json(
